@@ -6,16 +6,17 @@ Example scripts demonstrating typed model inference using the [typesafe-sdk](htt
 
 | Script | Description |
 | --- | --- |
-| `customer-ticket-classification-example.py` | Classifies a support ticket by team, refund intent, and urgency. |
-| `customer-ticket-sentiment-example.py` | Assesses whether a return is within policy, classifies it, and scores customer sentiment. |
-| `user-prompt-routing-example.py` | Routes a user prompt to the appropriate destination. |
-| `tool-call-moderation-example.py` | Moderates tool calls for safety. |
+| `examples/text/customer-ticket-classification.py` | Classifies a support ticket by team, refund intent, and urgency. |
+| `examples/text/customer-ticket-sentiment-analysis.py` | Assesses whether a return is within policy, classifies it, and scores customer sentiment. |
+| `examples/text/user-prompt-routing.py` | Routes a user prompt to the appropriate destination. |
+| `examples/text/tool-call-moderation.py` | Moderates tool calls for safety. |
+| `examples/multimodal/image-based-decision.py` | Reads an image and decides which occasion it represents, using the `clef-flash:9b` model. |
 
 ## Requirements
 
 - Python 3.10+
 - [Ollama](https://ollama.com) running locally (default API at `http://localhost:11434`)
-- The `nimble:9b` model installed: `ollama pull nimble:9b`
+- The `clef-flash:9b` model installed: `ollama pull clef-flash:9b`
 
 ## Setup
 
@@ -37,10 +38,11 @@ Example scripts demonstrating typed model inference using the [typesafe-sdk](htt
 
 ## Usage
 
-Run any example script directly; it reads `.env` automatically:
+Run any example script from the repo root; it reads `.env` automatically:
 
 ```bash
-python customer-ticket-classification-example.py
+python examples/text/customer-ticket-classification.py
+python examples/multimodal/image-based-decision.py
 ```
 
 Each script prints the parsed result as indented JSON.
@@ -48,10 +50,16 @@ Each script prints the parsed result as indented JSON.
 ## Project layout
 
 ```
-customer-ticket-classification-example.py
-customer-ticket-sentiment-example.py
-user-prompt-routing-example.py
-tool-call-moderation-example.py
+examples/
+  text/
+    customer-ticket-classification.py
+    customer-ticket-sentiment-analysis.py
+    user-prompt-routing.py
+    tool-call-moderation.py
+  multimodal/
+    image-based-decision.py
+    images/
+      happy-birthday.png
 requirements.txt
 .env
 ```
